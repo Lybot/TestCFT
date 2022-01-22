@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package grpcService;
+option go_package = "/grpcService";
+
+service CftService{
+    rpc GetFiles(Empty) returns (Response) {}
+    rpc GetFile(FileWithData) returns (Response) {}
+    rpc CreateFile(FileWithData) returns (Response) {}
+    rpc UpdateFile(FileWithData) returns (Response) {}
+    rpc DeleteFile(FileWithData) returns (Response) {}
+}
+
+message Empty {
+
+}
+message Response {
+    repeated FileWithData files = 1;
+    string error = 2;
+  }
+
+message FileWithData{
+    string name =1;
+    bytes data = 2;
+  }

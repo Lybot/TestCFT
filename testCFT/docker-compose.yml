@@ -1,0 +1,12 @@
+version: '3'
+
+
+services:
+  CFTservice:
+    image: cftservice
+    container_name: container
+    hostname: localhost
+    build:
+      context: .
+    ports:
+      - 32228:32228
